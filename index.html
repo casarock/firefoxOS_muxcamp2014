@@ -42,7 +42,7 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-                <section>
+                <section id="title">
                     <h1>Firefox OS</h1>
 
                     <h3>a (mobile) web developers dream</h3>
@@ -52,7 +52,7 @@
                     </p>
                 </section>
 
-                <section>
+                <section id="whoami">
                     <h2>Who am I?</h2>
 
                     <p>
@@ -62,14 +62,14 @@
                         Javascript enthusiast and web developer since 1998.
                     </p>
                 </section>
-                <section>
+                <section id="html5OS">
                     <h2>HTML5 based <br>Operating Systems</h2>
                     <aside class="notes">
                         The Idea of HTML5 based operating systems is not new. There are several other.
                         Let's take a look at some of them.
                     </aside>
                 </section>
-                <section id="fragments">
+                <section id="webos">
                     <h2>WebOS</h2>
 
                     <p>Invented by Palm. Used to for smartphones and tablets.</p>
@@ -87,7 +87,7 @@
                         and could be used to create rich web application for mobile and desktop.
                     </aside>
                 </section>
-                <section id="fragments">
+                <section id="chromeos">
                     <h2>ChromeOS</h2>
 
                     <p>A Linux distribution where Google Chrome is the "UI"</p>
@@ -102,15 +102,131 @@
                         Every app runs in browser. NaCl could be used, too.
                     </aside>
                 </section>
-                <section id="fragments">
+                <section id="windows8">
                     <h2>Windows 8(.1)</h2>
 
                     <p>Not the OS, but First Class Apps in HTML5.</p>
 
-                    <p class="fragment"></p>
                     <ul>
-                        <li class="fragment"></li>
+                        <li class="fragment">Build Windows 8 Apps in HTML5, CSS and Javascript</li>
+                        <li class="fragment">First Class Apps.</li>
                     </ul>
+
+                    <aside class="notes">
+                        Windows 8 allows developers to create first class apps using javascript, html5 and CSS
+                        These apps can be distributed using App Store and are first class citizens.
+                    </aside>
+                </section>
+                <section id="firefoxos">
+                    <h2>Firefox OS</h2>
+
+                    <p>Everything is a Browser!</p>
+
+                    <ul>
+                        <li class="fragment">First version released 2011</li>
+                        <li class="fragment">For smartphones and tablets</li>
+                        <li class="fragment">Every App is HTML5</li>
+                        <li class="fragment">Web APIs all around</li>
+                        <li class="fragment">If it's a Firefox, it runs your App!</li>
+                        <li class="fragment">Target: Emerging markets</li>
+                    </ul>
+
+                    <aside class="notes">
+                        Firefox OS' paradigmn is: Everything is written in HTML5. Even the "System Apps" are
+                        HTML5. Using WebAPIs to access hardware features. As emerging markets are main targets,
+                        it should run on low end devices. Everything is Open Source!
+                    </aside>
+                </section>
+                <section id="ffdetails" data-background="images/firefox-os-phone.jpg">
+                    <h1>Firefox OS</h1>
+
+                    <h3>In detail</h3>
+                </section>
+                <section id="architecture">
+                    <h2>Architecture</h2>
+                    <img src="images/ffos_arch.png" alt="Firefox Architecture" class="fragment">
+                    <aside class="notes">
+                        Firefox' rendering engine Gecko lays directly above a linux layer (Gonk). (Platform)
+                        On top of platform are Apps - 3rd Party and System apps.
+                        - Access to Hardware features is provided by WebAPIs (geolocation, vibration, battery etc.)
+                        - Access to sensible data (Contacts, phone etc.) is provided by Web Activities.
+                        - GAIA is the UI Layer (HTML5). On top of Gaia is every App!
+                    </aside>
+                </section>
+
+                <section id="arch-gonk" data-background="#307eae">
+                    <h2>Gonk</h2>
+
+                    <p>Low level OS of Firefox OS. Linux based on Android Open SourceProject</p>
+
+                    <aside class="notes">
+                        Gonk is the lower level operating system of the Firefox OS platform, consisting of a
+                        Linux kernel (based on the Android Open Source Project (AOSP)) and userspace hardware
+                        abstraction layer (HAL).
+
+                    </aside>
+                </section>
+
+                <section id="arch-gecko" data-background="#de6a10">
+                    <h2>Gecko</h2>
+
+                    <p>Well known rendering engine by Mozilla</p>
+                    <img src="images/netscape-gecko-logo.jpg" alt="Gecko logo">
+                    <aside class="notes">
+                        - originated developed by Netscape. Rendering engine for Firefox browser (HTML, CSS).
+                        - Meanwhile Firefox OS application runtime and includes Javascript.
+                        - Gecko includes, among other things, a networking stack, graphics stack, layout engine,
+                        a JavaScript virtual machine, and porting layers
+                    </aside>
+                </section>
+
+                <section id="arch-gaia" data-background="#00882b">
+                    <h2>Gaia</h2>
+
+                    <p>UI level of Firefox OS</p>
+                    <p class="fragment">Only interface to the underlying operating system and hardware</p>
+                    <aside class="notes">
+                        Gaia is written entirely in HTML, CSS, and JavaScript. Its only interface to the underlying
+                        operating system and hardware is through standard Web APIs, which are implemented by Gecko.
+                    </aside>
+                </section>
+
+                <section id="arch-webapi-activities" data-background="#00882b">
+                    <h2>Web APIs and Web activities</h2>
+                    <ul>
+                        <li class="fragment">Web APIs</li>
+                        <ul>
+                            <li  class="fragment">Access device hardware</li>
+                            <li  class="fragment">Provides access to data storage</li>
+                            <li  class="fragment">Security - sensitive APIs need approvement</li>
+                            <li  class="fragment">Some are already standard (W3C)</li>
+                        </ul>
+                        <li class="fragment">Web Activities</li>
+                        <ul>
+                            <li class="fragment">Access to sensible user data</li>
+                            <li class="fragment">App requests data from an other app</li>
+                            <li class="fragment">e.g. Dial a number requests Phone app</li>
+                            <li class="fragment">Only available for installed or higher privileged apps </li>
+                        </ul>
+                    </ul>
+                    <aside class="notes">
+                        WebAPIs are for accessing Hardware features. Some of them request authorisation from user.
+                        Most of them are already a W3C standard and available in other browsers, too
+                        <br>
+                        WebActivites: Access to Data from other Apps. E.g. Contacts, dial a number or pick an image
+                        are handled through activities. Own apps could also register for an activity.
+                    </aside>
+                </section>
+
+                <section id="arch-3rdparty-apps" data-background="#00882b">
+                    <h2>Apps and 3rd party apps</h2>
+
+                    <p>Every HTML5, Javascript, CSS based Apps for Firefox OS</p>
+                    <p>Using WebAPIs and Web Activities</p>
+                    <aside class="notes">
+                        Every App on Firefox OS uses Web activies and Web APIs. No matter if system App (dialer, Contacts
+                        etc) or 3rd Party Apps. Every App relies on them.
+                    </aside>
                 </section>
 			</div>
 
@@ -128,7 +244,7 @@
 				progress: true,
 				history: true,
 				center: true,
-				theme: 'night',
+				theme: 'default',
 				transition: 'linear',
 				dependencies: [
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
