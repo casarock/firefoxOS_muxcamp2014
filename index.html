@@ -217,7 +217,7 @@
                         are handled through activities. Own apps could also register for an activity.
                     </aside>
                 </section>
-
+                
                 <section id="arch-3rdparty-apps" data-background="#00882b">
                     <h2>Apps and 3rd party apps</h2>
 
@@ -228,8 +228,86 @@
                         etc) or 3rd Party Apps. Every App relies on them.
                     </aside>
                 </section>
-			</div>
 
+                <section id="app-development">
+                    <h2>App Development</h2>
+                    <p class="fragment">Just Open Web Apps</p>
+                    <aside class="notes">
+                        Apps are built using standard Web technologies with additional metadata that allows the
+                        User Agent to discover, install, launch, and grant them additional privileges..
+
+                        Apps could be installed
+                    </aside>
+                </section>
+
+                <section id="kind-of-apps">
+                    <h2>3 different App types</h2>
+                    <ol>
+                        <li class="fragment">web</li>
+                        <li class="fragment">privileged</li>
+                        <li class="fragment">certified</li>
+                    </ol>
+                    <p class="fragment">Definition in webapp.manifest</p>
+                    <aside class="notes">
+                        There are three types of apps. DEfinition by webapp.manifest
+                        WEB basically every html5 webpage, selfhosted.
+                        PRIVILEGED Authenticated Apps e.g. by Marketplace
+                        CERTIFIED authenticated app that is intended for critical system functions (dialer, etc)
+                    </aside>
+                </section>
+
+                <section id="webapp-manifest">
+                    <h2>The Web App Manifest</h2>
+                    <ul>
+                        <li class="fragment">distinguishes an Open Web App from a website</li>
+                        <li class="fragment">JSON Configuration file</li>
+                        <li class="fragment">Includes: permissions, author, description, type, icons, locale etc.</li>
+                    </ul>
+                    <aside class="notes">
+                        It is a JSON file with a name and description for the app, and it can also contain the
+                        origin of the app, icons, and the permissions required by the app, among other things
+                    </aside>
+                </section>
+                <section id="manifest-example">
+                    <h2>Example (minimal)</h2>
+                    <pre><code data-trim contenteditable>
+{
+    "name": "My Awesome App",
+    "description": "My elevator pitch goes here",
+    "launch_path": "/",
+    "icons": {
+        "128": "/img/icon-128.png"
+    },
+    "developer": {
+        "name": "Your Name",
+        "url": "http://your-homepage-here.tld"
+    },
+    "default_locale": "en"
+}
+                    </code></pre>
+                </section>
+
+                <section id="manifest-privileged">
+                    <h2>Example Privileged app</h2>
+                    <pre><code data-trim contenteditable>
+{
+    "name": "My Awesome Privileged App",
+        ....
+    "type": "privileged",
+    "fullscreen": "true",
+    "permissions": {
+        "contacts": {
+            "description": "Required for autocompletion in the share screen",
+            "access": "readcreate"
+        }
+    },
+    "default_locale": "en",
+        ...
+}
+                    </code></pre>
+                </section>
+            
+			</div>
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
