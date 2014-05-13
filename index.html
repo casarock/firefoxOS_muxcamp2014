@@ -332,10 +332,194 @@
             
                 <section id="webapi-code-example-battery">
                     <h2></h2>
-                    <p>$DESCRIPTION$</p>
+                    <p>Example: Battery API</p>
+                    <pre><code data-trim contenteditable>
+var battery = navigator.battery,
+    info = {
+        charging: battery.charging,
+        chargingTime: parseInt(battery.chargingTime / 60, 10),
+        dischargingTime: parseInt(battery.dischargingTime / 60, 10),
+        level: Math.round(battery.level * 100)
+    };
+                    </code></pre>
+                    <aside class="notes">
+                        With the battery API the current status of your phone or notebook could read.
+                    </aside>
+                </section>
+                <section id="webapi-code-example-geolocation">
+                    <h2>Example: Geolocation API*</h2>
+                    <pre><code data-trim contenteditable>
+navigator.geolocation.getCurrentPosition(handleLocation);
+
+function handleLocation(position) {
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    /*
+    coords.altitude
+    coords.accuracy
+    coords.altitudeAccuracy
+    coords.heading
+    coords.speed
+    timestamp
+    */
+}
+                    </code></pre>
+                    <small>*Ok, ok, not really a new one!</small>
+                    <aside class="notes">
+                        With geolocation API it's possible to locate a user with GPS (or Wifi/Cell). This API
+                        is not really new and mostly well known.
+                    </aside>
+                </section>
+                <section id="webapi-code-example-vibration">
+                    <h2>Example: Vibration API</h2>
                     <pre><code data-trim contenteditable>
 
+var pattern = [200, 100, 200, 200, 100],
+    vibrating = navigator.vibrate(pattern);
+
                     </code></pre>
+                    <aside class="notes">
+                        The vibration API allows access to device vibration. Useful for UI Feedback or alarms.
+                    </aside>
+                </section>
+                <section id="webapi-code-example-notification">
+                    <h2>Example: Notification API</h2>
+                    <p>Needs permissions granted by users! (e.g. webapp.manifest)</p>
+                    <pre><code data-trim contenteditable>
+"permissions": {
+  "desktop-notification": {
+    "description": "Allows to display notifications on the user's desktop."
+  }
+}
+                    </code></pre>
+                    <pre><code data-trim contenteditable>
+// At first, let's check if we have permission for notification
+// If not, let's ask for it
+if (Notification && Notification.permission !== "granted") {
+    Notification.requestPermission(function (status) {
+          if (Notification.permission !== status) {
+                Notification.permission = status;
+          }
+});
+}
+
+if (Notification && Notification.permission === "granted") {
+    var n = new Notification("Hi!");
+}
+                    </code></pre>
+                    <aside class="notes">
+                        With Notification API it is possible to trigger notifications for the user (not push!)
+                    </aside>
+                </section>
+                <section id="webapi-code-example-connection">
+                    <h2>Example: Connection API</h2>
+                    <p>Get information about current connection</p>
+                    <pre><code data-trim contenteditable>
+var connection = window.navigator.mozConnection,
+    data = {
+        online: connection.bandwidth,
+        metered: connection.metered
+    }
+                    </code></pre>
+                    <aside class="notes">
+                        With Connection API it is possible to get information about current connection and bandwidth.
+                        Useful for fallbacks, when connection isn't available, loading optmized data etc.
+                    </aside>
+                </section>
+                <section id="webapi-code-example-ambientlight">
+                    <h2>Example: Ambientlight</h2>
+                    <p>Get current Lux of ambient light</p>
+                    <pre><code data-trim contenteditable>
+var resElement = document.querySelector("#results");
+window.ondevicelight = function (event) {
+    // Read out the lux value
+    var lux = event.value;
+};
+                    </code></pre>
+                    <aside class="notes">
+                        With ambientlight it is possible to get the amount of ambient light! Usefull to adapt colors,
+                        brightness etc. 
+                    </aside>
+                </section>
+                <section id="webapi-code-example-contacts">
+                    <h2>Example: Contacts API</h2>
+                    <p>Read/Write/Delete Contacts - Permission required!</p>
+                    <pre><code data-trim contenteditable>
+"permissions": {
+    "contacts":{
+      "description": "Contacts permissions is required to write contact from Google to your Firefox OS phone",
+      "access": "readwrite" }
+  }
+}
+                    </code></pre>
+                    <pre><code data-trim contenteditable>
+var contactData = {
+    givenName: ["John"],
+    familyName: ["Doe"]
+};
+
+var person = new mozContact(contactData); // Firefox OS 1.3 takes a parameter
+// save the new contact
+var saving = navigator.mozContacts.save(person);
+
+saving.onsuccess = function() {
+    console.log('new contact saved');
+};
+
+saving.onerror = function(err) {
+    console.error(err);
+};
+                    </code></pre>
+                    <aside class="notes">
+                        Read, write, create contacts with contacts API. Needs permission!
+                    </aside>
+                </section>
+                <section id="webapi-code-example-devicestorage">
+                    <h2>Example: Device Storage API</h2>
+                    <p>Save/Read from sdcard, photo, music, video ...</p>
+                    <pre><code data-trim contenteditable>
+"permissions": {
+    "device-storage:pictures":{ "access": "readwrite" },
+    "device-storage:sdcard":{ "access": "readwrite" }
+}
+                    </code></pre>
+                    <pre><code data-trim contenteditable>
+var sdcard = navigator.getDeviceStorage("sdcard"),
+    file   = new Blob(["This is a text file."], {type: "text/plain"}),
+    request = sdcard.addNamed(file, "my-file.txt");
+
+request.onsuccess = function () {..}
+request.onerror = function () {..}
+
+var pics = navigator.getDeviceStorage('pictures');
+// browse all the images available
+var cursor = pics.enumerate();
+cursor.onsuccess = function () {
+  var file = this.result;
+  console.log("File found: " + file.name);
+
+  // check if there is other results
+  if (!this.done) {
+    // Then we move to the next result, which call the cursor
+    // success with the next file as result.
+    this.continue();
+  }
+}
+                    </code></pre>
+                    <aside class="notes">
+                        Read, create, write files on sdcard, photos, videos with device storage api.
+                    </aside>
+                </section>
+                <section id="webapi-code-example-manymore">
+                    <h2>And there are many more!</h2>
+
+                    <p>
+                        <a href="https://developer.mozilla.org/en-US/docs/WebAPI">APIs at MDN</a>
+                    </p>
+
+                    <aside class="notes">
+
+                    </aside>
                 </section>
 			</div>
 		</div>
