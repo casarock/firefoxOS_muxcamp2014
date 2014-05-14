@@ -80,12 +80,12 @@
 
                     <p>Invented by Palm. Used to for smartphones and tablets.</p>
 
-                    <ul>
-                        <li class="fragment">Launched 2009</li>
-                        <li class="fragment">Apps are written in HTML5</li>
-                        <li class="fragment">Palm sold to HP. HP to LG 2013</li>
-                        <li class="fragment">First (mobile) OS with HTML5 UI!</li>
-                        <li class="fragment">Enyo Framework still alive</li>
+                    <ul class="fragment">
+                        <li>Launched 2009</li>
+                        <li>Apps are written in HTML5</li>
+                        <li>Palm sold to HP. HP to LG 2013</li>
+                        <li>First (mobile) OS with HTML5 UI!</li>
+                        <li>Enyo Framework still alive</li>
                     </ul>
                     <aside class="notes">
                         WebOS was used for the UI of all WebOS based smartphones and Tablets (Palm Pre, etc)
@@ -97,11 +97,11 @@
                     <h2>ChromeOS</h2>
 
                     <p>A Linux distribution where Google Chrome is the "UI" layer</p>
-                    <ul>
-                        <li class="fragment">Launched 2009</li>
-                        <li class="fragment">Desktop only!</li>
-                        <li class="fragment">The browser is the OS (at least UI)</li>
-                        <li class="fragment">Still alive. Chromebooks are available</li>
+                    <ul class="fragment">
+                        <li>Launched 2009</li>
+                        <li>Desktop only!</li>
+                        <li>The browser is the OS (at least UI)</li>
+                        <li>Still alive. Chromebooks are available</li>
                     </ul>
                     <aside class="notes">
                         Google launched 2009 their Chrome OS. It is for Desktop only and based on Google Chrome.
@@ -113,9 +113,9 @@
 
                     <p>Not the OS, but First Class Apps in HTML5.</p>
 
-                    <ul>
-                        <li class="fragment">Build Windows 8 Apps in HTML5, CSS and Javascript</li>
-                        <li class="fragment">First Class Apps.</li>
+                    <ul class="fragment">
+                        <li>Build Windows 8 Apps in HTML5, CSS and Javascript</li>
+                        <li>First Class Apps.</li>
                     </ul>
 
                     <aside class="notes">
@@ -128,13 +128,13 @@
 
                     <p>Everything is a Browser!</p>
 
-                    <ul>
-                        <li class="fragment">First version released 2011</li>
-                        <li class="fragment">For smartphones and tablets</li>
-                        <li class="fragment">Every App is HTML5</li>
-                        <li class="fragment">Web APIs all around</li>
-                        <li class="fragment">If it's a Firefox, it runs your App!</li>
-                        <li class="fragment">Target: Emerging markets</li>
+                    <ul class="fragment">
+                        <li>First version released 2011</li>
+                        <li>For smartphones and tablets</li>
+                        <li>Every App is HTML5</li>
+                        <li>Web APIs all around</li>
+                        <li>If it's a Firefox, it runs your App!</li>
+                        <li>Target: Emerging markets</li>
                     </ul>
 
                     <aside class="notes">
@@ -153,10 +153,10 @@
                     <img src="images/ffos_arch.png" alt="Firefox Architecture" class="fragment">
                     <aside class="notes">
                         Firefox' rendering engine Gecko lays directly above a linux layer (Gonk). (Platform)
-                        On top of platform are Apps - 3rd Party and System apps.
-                        - Access to Hardware features is provided by WebAPIs (geolocation, vibration, battery etc.)
-                        - Access to sensible data (Contacts, phone etc.) is provided by Web Activities.
-                        - GAIA is the UI Layer (HTML5). On top of Gaia is every App!
+                        On top of platform are Apps - 3rd Party and System apps.<br>
+                        - Access to Hardware features is provided by WebAPIs (geolocation, vibration, battery etc.)<br>
+                        - Access to sensible data (Contacts, phone etc.) is provided by Web Activities.<br>
+                        - GAIA is the UI Layer (HTML5). On top of Gaia is every App!<br>
                     </aside>
                 </section>
 
@@ -179,8 +179,8 @@
                     <p>Well known rendering engine by Mozilla</p>
                     <img src="images/netscape-gecko-logo.jpg" alt="Gecko logo">
                     <aside class="notes">
-                        - originated developed by Netscape. Rendering engine for Firefox browser (HTML, CSS).
-                        - Meanwhile Firefox OS application runtime and includes Javascript.
+                        - originated developed by Netscape. Rendering engine for Firefox browser (HTML, CSS).<br/>
+                        - Meanwhile Firefox OS application runtime and includes Javascript.<br/>
                         - Gecko includes, among other things, a networking stack, graphics stack, layout engine,
                         a JavaScript virtual machine, and porting layers
                     </aside>
@@ -201,18 +201,18 @@
                     <h2>Web APIs and Web activities</h2>
                     <ul>
                         <li class="fragment">Web APIs</li>
-                        <ul>
-                            <li  class="fragment">Access device hardware</li>
-                            <li  class="fragment">Provides access to data storage</li>
-                            <li  class="fragment">Security - sensitive APIs need approvement</li>
-                            <li  class="fragment">Some are already standard (W3C)</li>
+                        <ul class="fragment">
+                            <li>Access device hardware</li>
+                            <li>Provides access to data storage</li>
+                            <li>Security - sensitive APIs need approvement</li>
+                            <li>Some are already standard (W3C)</li>
                         </ul>
                         <li class="fragment">Web Activities</li>
-                        <ul>
-                            <li class="fragment">Access to sensible user data</li>
-                            <li class="fragment">App requests data from an other app</li>
-                            <li class="fragment">e.g. Dial a number requests Phone app</li>
-                            <li class="fragment">Only available for installed or higher privileged apps </li>
+                        <ul class="fragment">
+                            <li>Access to sensible user data</li>
+                            <li>App requests data from an other app</li>
+                            <li>e.g. Dial a number requests Phone app</li>
+                            <li>Only available for installed or higher privileged apps </li>
                         </ul>
                     </ul>
                     <aside class="notes">
@@ -223,7 +223,7 @@
                         are handled through activities. Own apps could also register for an activity.
                     </aside>
                 </section>
-                
+
                 <section id="arch-3rdparty-apps" data-background="#00882b">
                     <h2>Apps and 3rd party apps</h2>
 
@@ -255,9 +255,9 @@
                     </ol>
                     <p class="fragment">Definition in webapp.manifest</p>
                     <aside class="notes">
-                        There are three types of apps. DEfinition by webapp.manifest
-                        WEB basically every html5 webpage, selfhosted.
-                        PRIVILEGED Authenticated Apps e.g. by Marketplace
+                        There are three types of apps. DEfinition by webapp.manifest<br>
+                        WEB basically every html5 webpage, selfhosted.<br>
+                        PRIVILEGED Authenticated Apps e.g. by Marketplace<br>
                         CERTIFIED authenticated app that is intended for critical system functions (dialer, etc)
                     </aside>
                 </section>
@@ -320,16 +320,16 @@
                     <h2>Web APIs</h2>
 
                     <p>Access device hardware and data store.</p>
-                    <p class="fragment">Sensible API need approvement and (at least) packaged apps</p>
+                    <p class="fragment">Sensible APIs need approvement or (at least) packaged apps</p>
                     <p class="fragment">Some of them are already W3C standards</p>
                     <p class="fragment">Pushing the Open Web with standards!</p>
 
                     <aside class="notes">
                         Web API allows access to device hardware features and to device data stores (System XHR,
-                        IndexedDB, Contacts API, Alarm, push etc.)
+                        IndexedDB, Contacts API, Alarm, push etc.).
                     </aside>
                 </section>
-            
+
                 <section id="webapi-code-example-battery">
                     <h2></h2>
                     <p>Example: Battery API</p>
@@ -438,7 +438,7 @@ window.ondevicelight = function (event) {
                     </code></pre>
                     <aside class="notes">
                         With ambientlight it is possible to get the amount of ambient light! Usefull to adapt colors,
-                        brightness etc. 
+                        brightness etc.
                     </aside>
                 </section>
                 <section id="webapi-code-example-contacts">
