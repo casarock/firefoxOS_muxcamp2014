@@ -19,6 +19,7 @@
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="lib/css/style.css">
 
 		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
 		<script>
@@ -58,6 +59,7 @@
                     <p>
                         Carsten Sandtner<br>
                         Head of Development at //mediaman GmbH<br/>
+                        Mozilla representative<br/>
                         <br>
                         Javascript enthusiast and web developer since 1998.
                     </p>
@@ -78,7 +80,7 @@
                 <section id="webos">
                     <h2>WebOS</h2>
 
-                    <p>Invented by Palm. Used to for smartphones and tablets.</p>
+                    <p>Invented by Palm. Aimed at smartphones and tablets.</p>
 
                     <ul class="fragment">
                         <li>Launched 2009</li>
@@ -131,16 +133,14 @@
                     <ul class="fragment">
                         <li>First version released 2011</li>
                         <li>For smartphones and tablets</li>
-                        <li>Every App is HTML5</li>
-                        <li>Web APIs all around</li>
-                        <li>If it's a Firefox, it runs your App!</li>
-                        <li>Target: Emerging markets</li>
+                        <li>Fully web based</li>
+                        <li>App development: Just HTML5</li>
                     </ul>
 
                     <aside class="notes">
-                        Firefox OS' paradigmn is: Everything is written in HTML5. Even the "System Apps" are
-                        HTML5. Using WebAPIs to access hardware features. As emerging markets are main targets,
-                        it should run on low end devices. Everything is Open Source!
+                        the only fully open mobile operating system based on web standards<br>
+                        It is fully web based, there is no native layer<br>
+                        HTML5 is a first class citizen in Firefox OS
                     </aside>
                 </section>
                 <section id="ffdetails" data-background="images/firefox-os-phone.jpg">
@@ -239,17 +239,16 @@
                     <h2>App Development</h2>
                     <p class="fragment">Just Open Web Apps</p>
                     <aside class="notes">
-                        Apps are built using standard Web technologies with additional metadata that allows the
-                        User Agent to discover, install, launch, and grant them additional privileges..
-
-                        Apps could be installed
+                        Apps for Firefox OS are HTML5 apps with an extra manifest file<br>
+                        secured by a three layer security model allowing more or less access depending on the location of the app<br>
+                        You can find and install them either from the web or the marketplace
                     </aside>
                 </section>
 
                 <section id="kind-of-apps">
                     <h2>3 different App types</h2>
                     <ol>
-                        <li class="fragment">web</li>
+                        <li class="fragment">hosted</li>
                         <li class="fragment">privileged</li>
                         <li class="fragment">certified</li>
                     </ol>
@@ -265,11 +264,11 @@
                 <section id="webapp-manifest">
                     <h2>The Web App Manifest</h2>
                     <ul>
-                        <li class="fragment">distinguishes an Open Web App from a website</li>
                         <li class="fragment">JSON Configuration file</li>
                         <li class="fragment">Includes: permissions, author, description, type, icons, locale etc.</li>
                     </ul>
                     <aside class="notes">
+                        distinguishes an Open Web App from a website<br/>
                         It is a JSON file with a name and description for the app, and it can also contain the
                         origin of the app, icons, and the permissions required by the app, among other things
                     </aside>
@@ -319,15 +318,64 @@
                 <section id="webapis">
                     <h2>Web APIs</h2>
 
-                    <p>Access device hardware and data store.</p>
-                    <p class="fragment">Sensible APIs need approvement or (at least) packaged apps</p>
-                    <p class="fragment">Some of them are already W3C standards</p>
-                    <p class="fragment">Pushing the Open Web with standards!</p>
+                    <p>Open API specifications to access the hardware of devices</p>
+                    <p class="fragment">Created with and submitted to standards bodies and other browser makers</p>
+                    <p class="fragment">Secured by three layer security model</p>
 
                     <aside class="notes">
                         Web API allows access to device hardware features and to device data stores (System XHR,
                         IndexedDB, Contacts API, Alarm, push etc.).
                     </aside>
+                </section>
+                <section id="webapis-hosted">
+                    <h2>Web APIs: hosted Apps</h2>
+                    <ul class="inline">
+                        <li>Vibration API</li>
+                        <li>Screen Orientation</li>
+                        <li>Geolocation API</li>
+                        <li>Mouse Lock API</li>
+                        <li>Open WebApps</li>
+                        <li>Network Information API</li>
+                        <li>Battery Status API</li>
+                        <li>Alarm API</li>
+                        <li>Push Notifications API</li>
+                        <li>WebFM API / FMRadio</li>
+                        <li>WebPayment</li>
+                        <li>IndexedDB</li>
+                        <li>Ambient light sensor</li>
+                        <li>Proximity sensor</li>
+                        <li>Notification</li>
+                    </ul>
+                </section>
+                <section id="webapis-privileged">
+                    <h2>Web APIs: privileged Apps</h2>
+                    <ul class="inline">
+                        <li>Device Storage API</li>
+                        <li>Browser API</li>
+                        <li>TCP Socket API</li>
+                        <li>Contacts API</li>
+                        <li>systemXHR</li>
+                    </ul>
+                </section>
+              <section>
+                <section id="webapis-certified">
+                    <h2>Web APIs: certified Apps</h2>
+                    <ul class="inline">
+                        <li>WebTelephony</li>
+                        <li>WebSMS</li>
+                        <li>Idle API</li>
+                        <li>Settings API</li>
+                        <li>Power Management API</li>
+                        <li>Mobile Connection API</li>
+                        <li>WiFi Information API</li>
+                        <li>WebBluetooth</li>
+                        <li>Permissions API</li>
+                        <li>Network Stats API</li>
+                        <li>Camera API</li>
+                        <li>Time/Clock API</li>
+                        <li>Attention screen</li>
+                        <li>Voicemail</li>
+                    </ul>
                 </section>
 
                 <section id="webapi-code-example-battery">
@@ -520,6 +568,110 @@ cursor.onsuccess = function () {
                     <aside class="notes">
 
                     </aside>
+                </section>
+              </section>
+
+                <section id="webactivities">
+                    <h2>Web Activities</h2>
+                    <aside class="notes">
+                         Get access to hardware and data without needing to package and host it from the market<br>
+                        Highly secure as nothing happens without the user initiating it
+                    </aside>
+                </section>
+              <section>
+                <section id="webactivities-overview">
+                    <h2>Web activities</h2>
+                    <ul class="inline">
+                        <li>configure</li>
+                        <li>costcontrol</li>
+                        <li>dial</li>
+                        <li>open</li>
+                        <li>pick</li>
+                        <li>record</li>
+                        <li>save-bookmark</li>
+                        <li>share</li>
+                        <li>view</li>
+                    </ul><br><br>
+                    <p>New ones: f.e type: “websms/sms” or “webcontacts/contact”</p>
+                </section>
+
+                <section id="webactivities-example-phone">
+                    <h2>Example: Dial a number</h2>
+                    <pre><code data-trim contenteditable>
+var getphoto = new MozActivity({
+  name: "pick",
+  data: {
+    type: ["image/png",
+           "image/jpg",
+           "image/jpeg"]
+  }
+});
+
+getphoto.onsuccess = function() {
+    var img = document.createElement("img");
+    if (this.result.blob.type.indexOf("image") != -1) {
+        img.src = window.URL.createObjectURL(this.result.blob);
+    }
+};
+getphoto.onerror = function() { // error
+};
+                    </code></pre>
+                </section>
+              </section>
+                <section id="tool-utils">
+                    <h2>Tools&Utils</h2>
+                </section>
+                <section id="tools-testing">
+                    <h2>Testing</h2>
+                    <ul class="fragment">
+                        <li>Simulator</li>
+                        <li>Browser - It's a Web App!</li>
+                    </ul>
+                </section>
+                <section id="tools-dev">
+                    <h2>Development</h2>
+                    <ul class="fragment">
+                        <li>No SDK!</li>
+                        <li>Use your favorite IDE/Editor</li>
+                        <li>It's HTML5!</li>
+                    </ul>
+                </section>
+                <section id="tools-debug">
+                    <h2>Debugging</h2>
+                    <ul class="fragment">
+                        <li>Developer tools in Firefox! (NOT! Firebug)</li>
+                        <li>Remote Debugger!</li>
+                    </ul>
+                </section>
+                <section id="tools-UI">
+                    <h2>UI Components</h2>
+                    <img src="images/buildingfirefoxos.png">
+                    <a href="http://buildingfirefoxos.com/">http://buildingfirefoxos.com/</a>
+                </section>
+                <section id="tools-UI-2">
+                    <h2>UI Components - Brick!</h2>
+                    <img src="images/brick.jpg">
+                    <a href="http://mozilla.github.io/brick/">http://mozilla.github.io/brick/</a>
+                </section>
+                <section id="tools-boiler-plate">
+                    <h2>Firefox OS Boilerplate</h2>
+                    <img src="images/boilerplate.jpg"><br/>
+                    <a href="https://github.com/robnyman/Firefox-OS-Boilerplate-App">https://github.com/robnyman/Firefox-OS-Boilerplate-App</a>
+                </section>
+                <section id="tools-phonegap-cordove">
+                    <h2>Phonegap and Cordova</h2>
+                    <img src="images/cordova_bot.png"><br/>
+                    <a href="http://build.phonegap.com/">http://build.phonegap.com/</a><br>
+                    <a href="http://cordova.apache.org/">http://cordova.apache.org/</a>
+                </section>
+                <section id="thankyou">
+                    <h2>Thank you!</h2>
+                    <p>
+                        Carsten Sandtner<br>
+                        <a href="http://www.twitter.com/casarock">@casarock</a><br>
+                    </p>
+                    <img width="300" src="images/firefoxos.png" alt="">
+
                 </section>
 			</div>
 		</div>
